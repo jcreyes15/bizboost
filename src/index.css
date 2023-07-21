@@ -86,7 +86,7 @@ h4,
 h5,
 h6 {
   font-family: var(--primary-font);
-  font-weight: var(--medium);
+  font-weight: var(--normal);
   color: var(--white);
   margin: 0;
 }
@@ -94,6 +94,16 @@ h6 {
 h1 {
   font-size: 4em;
   line-height: 1.5em;
+}
+
+h2 {
+  font-size: 2.45em;
+  font-weight: var(--medium);
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: var(--bold);
 }
 
 h4,
@@ -121,6 +131,12 @@ a {
   text-transform: capitalize;
 }
 
+section header .logo {
+  font-size: 1.6em;
+  font-weight: var(--bold);
+  color: var(--white);
+}
+
 a:hover,
 .logo:hover {
   color: var(--primary);
@@ -146,6 +162,11 @@ a:hover,
   line-height: 1.4em;
   text-transform: capitalize;
   color: var(--white);
+}
+
+.button:hover {
+  background: var(--white);
+  color: var(--background);
 }
 
 header {
@@ -198,12 +219,6 @@ header * {
   font-weight: var(--normal);
 }
 
-.logo {
-  font-size: 1.6em;
-  font-weight: var(--bold);
-  color: var(--white);
-}
-
 .logo:hover {
   color: var(--primary);
 }
@@ -247,4 +262,58 @@ main section article {
   margin-bottom: 50px;
   font-size: 1.2em;
   font-weight: var(--light);
+}
+
+/* our services section */
+
+.services {
+  display: flex;
+  flex: 1;
+  padding-top: 180px;
+  margin: 0, 80px;
+}
+
+aside {
+  padding-right: 260px;
+  padding-left: 60px;
+  padding-top: 120px;
+}
+
+aside ul {
+  display: block;
+}
+
+aside ul li a .button {
+  margin-top: 30px;
+}
+
+li article {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding-right: 180px;
+}
+
+footer h2 {
+  font-size: 2.45em;
+  font-weight: var(--semi-bold);
+  line-height: 1em;
+}
+
+footer {
+  margin: 0, auto;
+  text-align: center;
+}
+
+footer ul {
+  padding: 100px;
+}
+
+footer ul li {
+  display: flex;
+  flex: 1;
+}
+
+footer li {
+  display: flex;
+  flex-direction: column;
 }
