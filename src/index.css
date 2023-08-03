@@ -20,21 +20,656 @@
   Breakpoints.............................Global responsive breakpoints definitions
 */
 
-/*=======================================
+:root {
+  /*=======================================
     COLORS
-=========================================*/
+  =========================================*/
 
-/*=======================================
+  /*=========================
+    Brand Colors
+  ==========================*/
+  --primary: #2292b1;
+  --gradient-start: #1b3385;
+  --gradient-end: #25c5c9;
+
+  /*=========================
+    Neutral Colors
+  ==========================*/
+  --background: #0a0c11;
+  --body-text: #abadb3;
+  --border-color: #323438;
+  --sub-menu-bg: #222;
+  --white: #fff;
+
+  /*=========================
+    Utility Colors
+  ==========================*/
+
+  /*=======================================
     TYPOGRAPHY
-=========================================*/
-/* 
-  1. The Poppins font. This is the main font.
-  https://fonts.googleapis.com/css?family=Poppins
+  =========================================*/
+  /* 
+    1. The Poppins font. This is the main font.
+    https://fonts.googleapis.com/css?family=Poppins
 
-  2. The Courier font. This is used for <pre> code.
-  https://fonts.googleapis.com/css?family=Poppins
-*/
+    2. The Courier font. This is used for <pre> code.
+    https://fonts.googleapis.com/css?family=Poppins
+  */
+
+  /*=========================
+    Font famillies
+  ==========================*/
+  --primary-font: "Poppins";
+
+  /*=========================
+  Font weights
+  ==========================*/
+  --thin: 100;
+  --extra-light: 200;
+  --light: 300;
+  --normal: 400;
+  --medium: 500;
+  --semi-bold: 600;
+  --bold: 700;
+  --extra-bold: 800;
+  --heavy: 900;
+
+  /*=========================
+  Sizes
+  ==========================*/
+  --base-font: 20px;
+}
 
 /*=======================================
-    BREAKPOINTS
+    RESETS
 =========================================*/
+body {
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+  font-size: var(--base-font);
+  color: var(--body-text);
+  background: var(--background);
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*=========================
+  Heading Sizes
+==========================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font);
+  font-weight: var(--medium);
+  color: var(--white);
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.1em;
+  line-height: 1.72em;
+}
+
+h2 {
+  font-size: 1.6em;
+  line-height: 1.29em;
+  text-transform: capitalize;
+  margin-top: 14px;
+}
+
+h3 {
+  font-size: 1.6em;
+  font-weight: var(--bold);
+}
+
+h4 {
+  font-size: 1.2em;
+  line-height: 1.72em;
+}
+
+h5 {
+  font-size: 0.9em;
+  font-weight: var(--semi-bold);
+  line-height: 1em;
+}
+
+h6 {
+  font-weight: var(--semi-bold);
+  font-size: 0.8em;
+  color: var(--body-text);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: var(--body-text);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-style: normal;
+  font-weight: var(--normal);
+  line-height: 2.4em;
+  text-transform: capitalize;
+}
+
+a:hover,
+.logo h2:hover {
+  color: var(--primary);
+}
+
+.lowlight {
+  opacity: 0.5;
+}
+
+.gradient-button {
+  padding: 15px 34.86px 16.08px 35px;
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--white);
+  border-radius: 30px;
+  font-size: 0.9em;
+  font-weight: var(--bold);
+  line-height: 1.6em;
+  background: linear-gradient(
+    90deg,
+    var(--gradient-start) 0%,
+    var(--gradient-end) 100%
+  );
+}
+
+.gradient-button:hover {
+  background: var(--white);
+  color: var(--background);
+}
+
+/*=======================================
+    Mobile First
+=========================================*/
+.blocks {
+  padding: 0 30px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  flex: 3;
+}
+
+.mobile {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mobile img {
+  width: 16px;
+}
+
+.desktop {
+  display: none;
+}
+
+.submenu {
+  display: none;
+}
+
+.social {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.social ul {
+  column-gap: 25px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 42px 0;
+  margin: 0 auto;
+}
+
+main > * {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-tagline {
+  margin-top: 24px;
+}
+
+.hero-cta {
+  margin-top: 14px;
+}
+
+.hero-video video {
+  width: 100%;
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.our-services {
+  margin: 42px 0;
+}
+
+.big-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 42px;
+}
+
+.number-box {
+  display: flex;
+  flex-direction: column;
+}
+.number-box > * {
+  display: flex;
+  justify-content: center;
+}
+
+/*=======================================
+    FEATURED CONTENT
+=========================================*/
+
+.featured-content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.featured-content {
+  text-align: center;
+}
+
+.box a {
+  position: relative;
+}
+
+hr {
+  position: absolute;
+  top: 17px;
+  text-align: start;
+  border: 1px solid var(--gradient-end);
+  width: 95px;
+}
+.boxes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 39.9px;
+}
+
+.boxes-container .box {
+  padding: 44px;
+  border: 2px solid var(--border-color);
+}
+
+/*=======================================
+    Promotional Contact
+=========================================*/
+
+.promotional-contact-layout {
+  display: flex;
+  position: relative;
+  padding: 42px 28px;
+}
+.promotional-contact {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.promotional-contact .rectangle {
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.promotional-contact-layout a {
+  margin-top: 35px;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.promotional-contact-layout img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/*=======================================
+    Footer
+=========================================*/
+/* footer > * {
+  border: 1px solid var(--body-text);
+} */
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px 0;
+}
+
+footer:first-child {
+  flex: 1;
+}
+
+footer:last-child {
+  flex: 2;
+}
+
+.newsletter h5 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.links ul {
+  flex-direction: column;
+}
+
+.links a {
+  font-size: 0.8em;
+}
+
+.selected {
+  color: var(--primary);
+}
+
+.footer-social {
+  display: flex;
+  /* justify-content: flex-start; */
+}
+
+.footer-social ul {
+  gap: 20px;
+}
+
+.footer-social li {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 0.65em;
+  border-top: 1px solid var(--border-color);
+  padding: 20px 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#email {
+  font-size: 0.7em;
+  padding: 13px;
+  background-color: transparent;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid var(--border-color);
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  width: 218px;
+}
+.email-btn {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: 0;
+  padding: 11px 16px 12px;
+  margin-left: -6px;
+  font-size: 0.7em;
+}
+
+.cta {
+  padding: 5px 0 40px;
+}
+
+/*=======================================
+    TABLET & DESKTOP BREAKPOINTS
+=========================================*/
+
+@media all and (min-width: 479px) and (max-width: 1280px) {
+}
+
+@media all and (min-width: 479px) {
+  .selected {
+    color: var(--primary);
+  }
+
+  .circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: absolute;
+    left: -11px;
+    top: -2px;
+  }
+
+  .circle:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .blocks {
+    padding: 0 88px;
+  }
+
+  .hero {
+    padding: 0 85px;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .logo h2 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+  }
+
+  .desktop ul {
+    column-gap: 35px;
+  }
+
+  .desktop ul li:nth-child(2) img {
+    width: 16px;
+  }
+
+  .desktop ul li {
+    position: relative;
+  }
+
+  .desktop ul li:nth-child(2):hover .submenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .submenu {
+    width: 230px;
+    background-color: var(--sub-menu-bg);
+    z-index: 99;
+  }
+
+  .submenu li {
+    min-width: 100%;
+    padding-left: 20px;
+    border: 1px solid var(--border-color);
+  }
+
+  .submenu li:hover {
+    padding-left: 30px;
+  }
+
+  .social {
+    flex: 1;
+  }
+
+  h1 {
+    font-size: 4em;
+    line-height: 1.72em;
+  }
+
+  h3 {
+    font-size: 2.27em;
+  }
+
+  main {
+    max-width: 760px;
+  }
+
+  .our-services {
+    display: flex;
+    margin: 131px 0;
+  }
+
+  .big-numbers {
+    flex-direction: row;
+    gap: 40px;
+    padding: 0 80px;
+    margin-bottom: 131px;
+  }
+
+  .big-numbers > * {
+    flex: 1;
+  }
+
+  .our-services > * {
+    flex: 1;
+  }
+  .our-services-layout {
+    padding: 0 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .featured-content-layout {
+    gap: 44px;
+  }
+
+  .featured-content-layout > * {
+    flex: 1;
+  }
+
+  .boxes-container {
+    flex-direction: row;
+  }
+
+  .box img:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+
+  .promotional-contact-layout {
+    padding: 180px 50px;
+  }
+
+  .circle-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: absolute;
+    left: -11px;
+    top: -10px;
+  }
+
+  .circle-social:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .newsletter {
+    flex: 1;
+  }
+
+  .cta {
+    min-width: 335px;
+  }
+
+  .links {
+    flex: 2;
+  }
+
+  .links > * {
+    flex: 1;
+  }
+
+  .copyright {
+    flex-direction: row;
+  }
+
+  .copyright > * {
+    flex: 1;
+  }
+
+  .footer-social {
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
